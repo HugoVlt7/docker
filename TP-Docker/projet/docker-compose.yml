@@ -1,0 +1,20 @@
+version: "3"
+services:
+  monapp:
+    image: monimage
+    hostname: SaintLuc
+    depends_on:
+      - redis
+    ports:
+      - "80:80"
+    networks:
+      - monreseau
+    environment:
+      - NOM=les SISR
+  redis:
+    image: redis
+    networks:
+      - monreseau
+
+networks:
+  monreseau:
